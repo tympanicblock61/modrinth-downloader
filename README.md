@@ -14,3 +14,5 @@ config file syntax
   ]
 }
 ```
+tutorial on ids and name
+![Demo](https://files.catbox.moe/zmv9nz.mp4)
