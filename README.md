@@ -14,5 +14,5 @@ config file syntax
   ]
 }
 ```
-tutorial on ids and name__
+tutorial on ids and name<br />
 [![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://files.catbox.moe/zmv9nz.mp4)
