@@ -1,7 +1,7 @@
 # modrinth-downloader
 
 
-config file syntax__
+config file syntax
 ```
 {
   "loader": "fabric",
