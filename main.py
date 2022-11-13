@@ -3,10 +3,22 @@ import os
 import requests
 
 
+def stripstr(strw):
+    oldstrw = strw
+    for _ in range(len(oldstrw)):
+        if oldstrw[_] not in string.ascii_letters + " ":
+            strw = strw.replace(oldstrw[_], "")
+    return strw
+
+
 def md(id):
-    e = requests.get(f'https://api.modrinth.com/v2/project/{id["id"]}/version?featured=true').json()
+    e = requests.get(f'https://api.modrinth.com/v2/project/{id}/version?featured=true').json()
     thing = None
+    name = None
     for item in e:
+        if name is None:
+            name = stripstr(item["name"])
+            print(name)
         if versionWanted in item["game_versions"] and loaderWanted in item["loaders"]:
             for file in item["files"]:
                 if file["primary"]:
@@ -19,8 +31,7 @@ def md(id):
                 f.write(r.content)
                 print(thing['filename'])
     else:
-        print(f"cannot find {id['name']} for version {versionWanted}")
-        
+        print(f"cannot find {name} for version {versionWanted}")
         
 if __name__ == "__main__":
     file = input("config file: ")
