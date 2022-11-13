@@ -1,0 +1,114 @@
+{
+  "version": "1.19.2",
+  "loader": "fabric",
+  "modrinth": [
+    {
+      "id":"gvQqBUqZ",
+      "name": "Lithium"
+    },
+    {
+      "id": "fQEb0iXm",
+      "name": "Krypton"
+    },
+    {
+      "id": "uXXizFIs",
+      "name": "ferrite-core"
+    },
+    {
+      "id": "ihnBJ6on",
+      "name": "entity-view-distance"
+    },
+    {
+      "id": "ZfQ3kTvR",
+      "name": "dashloader"
+    },
+    {
+      "id": "NNAgCjsB",
+      "name": "entityculling"
+    },
+    {
+      "id": "OVuFYfre",
+      "name": "ebe"
+    },
+    {
+      "id": "GNxdLCoP",
+      "name": "cull-leaves"
+    },
+    {
+      "id": "AANobbMI",
+      "name": "sodium"
+    },
+    {
+      "id": "H8CaAYZC",
+      "name": "starlight"
+    },
+    {
+      "id": "hvFnDODi",
+      "name": "Lazydfu"
+    },
+    {
+      "id": "yM94ont6",
+      "name": "notenoughcrashes"
+    },
+    {
+      "id": "387LWVd9",
+      "name": "versionchanger"
+    },
+    {
+      "id": "diCZrsch",
+      "name": "slyde"
+    },
+    {
+      "id": "Orvt0mRa",
+      "name": "indium"
+    },
+    {
+      "id": "LQ3K71Q1",
+      "name": "dynamic-fps"
+    },
+    {
+      "id": "7Coz83fv",
+      "name": "client-commands"
+    },
+    {
+      "id": "sfEDKnlo",
+      "name": "multiconnect"
+    },
+    {
+      "id": "mOgUt4GM",
+      "name": "modmenu"
+    },
+    {
+      "id": "NRjRiSSD",
+      "name": "memoryleakfix"
+    },
+    {
+      "id": "9s6osm5g",
+      "name": "cloth-config"
+    },
+    {
+      "id": "8shC1gFX",
+      "name": "betterf3"
+    },
+    {
+      "id": "8qkXwOnk",
+      "name": "morechathistory"
+    },
+    {
+      "id": "2ecVyZ49",
+      "name": "ksyxis"
+    },
+    {
+      "id": "yjgIrBjZ",
+      "name": "auth-me"
+    },
+    {
+      "id": "UwbKhrqq",
+      "name": "resounding"
+    },
+    {
+      "id": "vRXn3MrA",
+      "name": "forgetmechunk"
+    }
+  ]
+}
