@@ -18,7 +18,6 @@ def md(id):
     for item in e:
         if name is None:
             name = stripstr(item["name"])
-            print(name)
         if versionWanted in item["game_versions"] and loaderWanted in item["loaders"]:
             for file in item["files"]:
                 if file["primary"]:
