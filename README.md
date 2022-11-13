@@ -1,5 +1,10 @@
 # modrinth-downloader
 
+credits
+```
+crosby: Crosby#9153 - helped with some stuff
+
+```
 
 config file syntax
 ```
