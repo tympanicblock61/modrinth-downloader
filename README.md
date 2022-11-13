@@ -2,11 +2,11 @@
 
 credits
 ```
-crosby: Crosby#9153 - helped with some stuff
+crosby: Crosby#9153 - helped with alot of stuff
 
 ```
 
-config file syntax
+config file syntax; it can contain either mod id or name and it works to get the mod from both
 ```
 {
   "loader": "fabric",
