@@ -3,7 +3,7 @@ import os
 import requests
 
 def stripstr(strw):
-    strw = strw.replace(".jar", "").replace("mc", "").replace("fabric", "").replace("forge", "")
+    strw = strw.lower().replace(".jar", "").replace("mc", "").replace("fabric", "").replace("forge", "")
     oldstrw = strw
     for _ in range(len(oldstrw)):
         if oldstrw[_] not in string.ascii_letters + " ":
