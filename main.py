@@ -5,7 +5,10 @@ import requests
 def md(id):
     e = requests.get(f'https://api.modrinth.com/v2/project/{id}/version?featured=true').json()
     thing = None
+    name = None
     for item in e:
+        if name is None:
+            name = item["name"]
         if versionWanted in item["game_versions"] and loaderWanted in item["loaders"]:
             for file in item["files"]:
                 if file["primary"]:
