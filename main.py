@@ -2,13 +2,22 @@ import json
 import os
 import requests
 
+def stripstr(strw):
+    strw = strw.replace(".jar", "").replace("mc", "").replace("fabric", "").replace("forge", "")
+    oldstrw = strw
+    for _ in range(len(oldstrw)):
+        if oldstrw[_] not in string.ascii_letters + " ":
+            strw = strw.replace(oldstrw[_], "")
+    return strw
+
+
 def md(id):
     e = requests.get(f'https://api.modrinth.com/v2/project/{id}/version?featured=true').json()
     thing = None
     name = None
     for item in e:
         if name is None:
-            name = item["name"]
+            name = stripstr(item["files"][0]["filename"])
         if versionWanted in item["game_versions"] and loaderWanted in item["loaders"]:
             for file in item["files"]:
                 if file["primary"]:
@@ -21,7 +30,7 @@ def md(id):
                 f.write(r.content)
                 print(thing['filename'])
     else:
-        print(f"cannot find {item['name']} for version {versionWanted}")
+        print(f"cannot find {name} for version {versionWanted}")
         
 if __name__ == "__main__":
     file = input("config file: ")
