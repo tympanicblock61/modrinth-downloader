@@ -2,6 +2,11 @@ import json
 import os
 import requests
 
+def getLatestVersion():
+    versions = requests.get("https://api.modrinth.com/v2/tag/game_version").json()
+    for version in versions:
+        if version["major"]:
+            return version["version"]
 
 def md(id):
     name = requests.get(f"https://api.modrinth.com/v2/project/{id}").json()["title"]
@@ -20,7 +25,7 @@ def md(id):
                 f.write(r.content)
                 print(thing['filename'])
     else:
-        print(f"cannot find {name} for version {versionWanted}")
+        print(f"cannot find {name} for version {versionWanted} or for loader {loaderWanted}")
         
 if __name__ == "__main__":
     file = input("config file: ")
@@ -30,7 +35,7 @@ if __name__ == "__main__":
         config = json.load(r)
         modrinthIds = config["modrinth"]
         loaderWanted = config["loader"] or "fabric"
-        versionWanted = config["version"] or "1.19.2"  # or use a api to get latest version of the game
+        versionWanted = config["version"] or getLatestVersion()
 
     for id in modrinthIds:
         if id is not None:
