@@ -1,11 +1,7 @@
 {
-  "version": "",
-  "loader": "",
+  "version": "1.19.3 or 1.19.4 or 1.19 for example",
+  "loader": "quilt or fabric for example",
   "modrinth": [
-    {
-      "id":"",
-      "name": ""
-    }
-    }
+    "slug of mod or id"
   ]
 }
