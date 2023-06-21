@@ -23,12 +23,6 @@ def md(id):
             break
     if thing is not None:
         with requests.get(thing["url"], stream=True) as r:
-            if not os.path.isdir(location):
-                os.mkdir(location)
-            elif delete:
-                for file in os.listdir(location):
-                    if file.endswith(".jar"):
-                        os.remove(file)
             with open(f"{location}/{thing['filename']}", 'wb') as f:
                 f.write(r.content)
                 print(thing['filename'])
@@ -41,11 +35,17 @@ if __name__ == "__main__":
     with open(mainFile, "r") as r:
         config = json.load(r)
         modrinthIds = config["modrinth"]
-        loaderWanted = config["loader"] or "fabric"
-        versionWanted = config["version"] or getLatestVersion()
-        location = config["location"] or os.path.basename(mainFile)
-        delete = config["delete"] or False
+        loaderWanted = config.get("loader", "fabric")
+        versionWanted = config.get("version", getLatestVersion())
+        location = config.get("location", os.path.splitext(mainFile)[0])
+        delete = config.get("delete", False)
 
+    if not os.path.isdir(location):
+        os.mkdir(location)
+    elif delete:
+        for file in os.listdir(location):
+            if file.endswith(".jar"):
+                os.remove(f"{location}/{file}")
     for id in modrinthIds:
         if id is not None:
             md(id)
