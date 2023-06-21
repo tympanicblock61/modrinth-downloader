@@ -27,7 +27,8 @@ def md(id):
                 os.mkdir(location)
             elif delete:
                 for file in os.listdir(location):
-                    os.remove(file)
+                    if file.endswith(".jar"):
+                        os.remove(file)
             with open(f"{location}/{thing['filename']}", 'wb') as f:
                 f.write(r.content)
                 print(thing['filename'])
