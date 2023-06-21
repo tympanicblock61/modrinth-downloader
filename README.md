@@ -6,11 +6,13 @@ crosby: Crosby#9153 - helped with alot of stuff
 
 ```
 
-config file syntax; it can contain either mod id or name and it works to get the mod from both
+config file syntax; it can contain either mod id or name and it works to get the mod from both <br>
 ```
 {
   "loader": "fabric",
-  "version": "1.19.2
+  "version": "1.19.2,
+  "location": "test",
+  "delete": true,
   "modrinth": [
      "LQ3K71Q1",
      "dynamic-fps"
