@@ -2,11 +2,13 @@ import json
 import os
 import requests
 
+
 def getLatestVersion():
     versions = requests.get("https://api.modrinth.com/v2/tag/game_version").json()
     for version in versions:
         if version["major"]:
             return version["version"]
+
 
 def md(id):
     name = requests.get(f"https://api.modrinth.com/v2/project/{id}").json()["title"]
@@ -21,21 +23,27 @@ def md(id):
             break
     if thing is not None:
         with requests.get(thing["url"], stream=True) as r:
-            with open(f"modrinth/{thing['filename']}", 'wb') as f:
+            if not os.path.isdir(location):
+                os.mkdir(location)
+            elif delete:
+                for file in os.listdir(location):
+                    os.remove(file)
+            with open(f"{location}/{thing['filename']}", 'wb') as f:
                 f.write(r.content)
                 print(thing['filename'])
     else:
         print(f"cannot find {name} for version {versionWanted} or for loader {loaderWanted}")
-        
+
+
 if __name__ == "__main__":
-    file = input("config file: ")
-    if not os.path.exists("modrinth"):
-        os.makedirs("modrinth")
-    with open(file, "r") as r:
+    mainFile = input("config file: ")
+    with open(mainFile, "r") as r:
         config = json.load(r)
         modrinthIds = config["modrinth"]
         loaderWanted = config["loader"] or "fabric"
         versionWanted = config["version"] or getLatestVersion()
+        location = config["location"] or os.path.basename(mainFile)
+        delete = config["delete"] or False
 
     for id in modrinthIds:
         if id is not None:
